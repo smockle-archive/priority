@@ -80,7 +80,7 @@ public class Priority {
     
     // Get user commands (enqueue, dequeue, changeweight).
     String c = "";
-    while (c != "exit" && c != "quit" && c != "q") {
+    while (!c.equals("exit") && !c.equals("quit") && !c.equals("q")) {
       // Prompt.
       System.out.print("> ");
       c = scan.nextLine();
