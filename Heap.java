@@ -89,6 +89,8 @@ public class Heap {
       {
           //doneGoofed
       }
+
+	  buildheap();
   }
   
   // Put an element in its correct place ~ max-heapify(int) - Done 
