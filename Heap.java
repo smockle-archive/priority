@@ -32,11 +32,18 @@ public class Heap {
   // Done
   public int dequeue()
   {			
-      Node root = removemax();
+	  if(n != 0)
+	  {
+      	Node root = removemax();
       
-      siftdown(0);
-      
-      return root.id;
+        siftdown(0);
+
+        return root.id;
+      }
+      else
+	  {
+        return -1;
+	  }
       
   }
   
