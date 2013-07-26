@@ -76,8 +76,10 @@ public class Heap {
   public void changeWeight(int Object_ID, int new_priority)
   {
       boolean didFind = false;
-      for(Node x : Heap)
+      for(int i = 0; i < n; i++)
       {
+		  Node x = Heap[i];
+
           if(x.id == Object_ID)
           {
               didFind = true;
