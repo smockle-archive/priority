@@ -90,7 +90,7 @@ public class Heap {
         
         while((x < n/2) && !done)       
         {		    	  
-            int left = 2*x+1;
+            int left = 2*x;
             int right = left+1;
                                            
             if(right < n && Heap[left].priority < Heap[right].priority)
