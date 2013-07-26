@@ -85,6 +85,7 @@ public class Priority {
     System.out.println("\"dequeue\" or \"d\" removes the highest priority element.");
     System.out.println("\"changeWeight\" or \"c\" changes the priority of an element.");
     System.out.println("\"show\" or \"s\" displays all elements.");
+    System.out.println("\"exit\" or \"quit\" or \"q\" closes the program.");
     
     // Get user commands (enqueue, dequeue, changeweight).
     String c = "";
