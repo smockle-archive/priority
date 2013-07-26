@@ -14,8 +14,8 @@ public class Heap {
   public void enqueue(int Object_ID, int priority)
   {
       Node node = new Node();
-      node.nodeID = Object_ID;
-      node.nodePriority = priority;
+      node.id = Object_ID;
+      node.priority = priority;
       
       insert(node);
       
@@ -36,7 +36,7 @@ public class Heap {
       
       siftdown(0);
       
-      return root.nodeID;
+      return root.id;
       
   }
   
@@ -68,10 +68,10 @@ public class Heap {
       boolean didFind = false;
       for(Node x : Heap)
       {
-          if(x.nodeID == Object_ID)
+          if(x.id == Object_ID)
           {
               didFind = true;
-              x.nodePriority = new_priority;
+              x.priority = new_priority;
           }
       }
       
@@ -93,7 +93,7 @@ public class Heap {
             int left = 2*x+1;
             int right = left+1;
                                            
-            if(right < n && Heap[left].nodePriority < Heap[right].nodePriority)
+            if(right < n && Heap[left].priority < Heap[right].priority)
             {			        	  
                 bigChild = right;
             }
@@ -102,7 +102,7 @@ public class Heap {
                 bigChild = left;
             }
                                            
-            if(root.nodePriority >= Heap[bigChild].nodePriority)
+            if(root.priority >= Heap[bigChild].priority)
             {
                   done = true;		        	  
             }

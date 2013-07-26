@@ -9,6 +9,16 @@ import java.util.Scanner;
 // To run: java Priority
 
 public class Priority {
+  public static boolean isInteger(String string) {
+    try {
+        Integer.parseInt(string);
+        return true;
+    }
+    catch(Exception e) {
+        return false;
+    }
+  }
+  
   public static void main(String[] args) {
     // Init scanner.
     Scanner scan = new Scanner(System.in);
@@ -17,7 +27,8 @@ public class Priority {
     int size = 0;
     while (size <= 0) {
       System.out.print("How big is the queue? ");
-      size = scan.nextInt();
+      String temp = scan.nextLine();
+      if (Priority.isInteger(temp)) size = Integer.parseInt(temp);
     }
     Node[] nodes = new Node[size];
     
@@ -25,7 +36,8 @@ public class Priority {
     int n = size + 1;
     while (n > size) {
       System.out.print("How many elements initially? ");
-      n = scan.nextInt();
+      String temp = scan.nextLine();
+      if (Priority.isInteger(temp)) n = Integer.parseInt(temp);
     }
     
     // Make a priority queue.
@@ -37,14 +49,16 @@ public class Priority {
       Node node = new Node();
       
       // Get element ID (position).
-//      System.out.print("What is the ID (position) of element #" + (i + 1) + "? ");
-//      n.nodeID = scan.nextInt();
-//      System.out.print("\n");
-      node.nodeID = i;
+      node.id = -1;
+      while (node.id < 0) {
+        System.out.print("What is the ID (position) of element #" + (i + 1) + "? ");
+        String temp = scan.nextLine();
+        if (Priority.isInteger(temp)) node.id = Integer.parseInt(temp);
+      }
       
       // Get element priority (value).
       System.out.print("What is the priority (value) of element #" + (i + 1) + "? ");
-      node.nodePriority = scan.nextInt();
+      node.priority = scan.nextInt();
       
       // Add Node to queue.
       pq.insert(node);
