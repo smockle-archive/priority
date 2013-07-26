@@ -56,6 +56,12 @@ public class Priority {
         System.out.print("What is the ID (position) of element #" + (i + 1) + "? ");
         String temp = scan.nextLine();
         if (Priority.isInteger(temp)) node.id = Integer.parseInt(temp);
+        
+        // Check existing ids. Ensure uniqueness.
+        Node[] ns = pq.getHeap();
+        for (int j = 0; j < ns.length; j++) {
+          if (ns[j].id == node.id) node.id = -1;
+        }
       }
       
       // Get element priority (value).
@@ -97,6 +103,12 @@ public class Priority {
             System.out.print("What is the new element ID (position)? ");
             String temp = scan.nextLine();
             if (Priority.isInteger(temp)) id = Integer.parseInt(temp);
+            
+            // Check existing ids. Ensure uniqueness.
+            Node[] ns = pq.getHeap();
+            for (int j = 0; j < ns.length; j++) {
+              if (ns[j].id == node.id) node.id = -1;
+            }
           }
           
           // Get element priority (value).
@@ -125,6 +137,12 @@ public class Priority {
             System.out.print("What is the current element ID (position)? ");
             String temp = scan.nextLine();
             if (Priority.isInteger(temp)) id = Integer.parseInt(temp);
+            
+            // Check existing ids. Ensure uniqueness.
+            Node[] ns = pq.getHeap();
+            for (int j = 0; j < ns.length; j++) {
+              if (ns[j].id == node.id) node.id = -1;
+            }
           }
           
           // Get element priority (value).

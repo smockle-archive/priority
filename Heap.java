@@ -204,5 +204,10 @@ public class Heap {
     
     return output + " ]";
   }
+  
+  // Getter for heap.
+  public Node[] getHeap() {
+    return Heap;
+  }
 }
 
