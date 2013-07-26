@@ -13,13 +13,16 @@ public class Heap {
   
   public void enqueue(int Object_ID, int priority)
   {
-      Node node = new Node();
-      node.id = Object_ID;
-      node.priority = priority;
-      
-      insert(node);
-      
-      buildheap();
+	  if(n != size)
+	  {
+		  Node node = new Node();
+		  node.id = Object_ID;
+		  node.priority = priority;
+		  
+		  insert(node);
+		  
+		  buildheap();
+	  }
   }
   
   // Insert value into heap
