@@ -50,15 +50,19 @@ public class Priority {
       
       // Get element ID (position).
       node.id = -1;
-      while (node.id < 0) {
+      while (node.id < 0 || node.id > size - 1) {
         System.out.print("What is the ID (position) of element #" + (i + 1) + "? ");
         String temp = scan.nextLine();
         if (Priority.isInteger(temp)) node.id = Integer.parseInt(temp);
       }
       
       // Get element priority (value).
-      System.out.print("What is the priority (value) of element #" + (i + 1) + "? ");
-      node.priority = scan.nextInt();
+      boolean b = true;
+      while (b) {
+        System.out.print("What is the priority (value) of element #" + (i + 1) + "? ");
+        String temp = scan.nextLine();
+        if (Priority.isInteger(temp)) { node.priority = Integer.parseInt(temp); b = false; }
+      }
       
       // Add Node to queue.
       pq.insert(node);
@@ -85,12 +89,21 @@ public class Priority {
         case "enqueue":
         case "e":
           // Get element ID (position).
-          System.out.print("What is the new element ID (position)? ");
-          int id = scan.nextInt();
-      
+          int id = -1;
+          while (id < 0 || id > size - 1) {
+            System.out.print("What is the new element ID (position)? ");
+            String temp = scan.nextLine();
+            if (Priority.isInteger(temp)) id = Integer.parseInt(temp);
+          }
+          
           // Get element priority (value).
-          System.out.print("What is the new element priority (value)? ");
-          int priority = scan.nextInt();
+          boolean b = true;
+          int priority = 0;
+          while (b) {
+            System.out.print("What is the new element priority (value)? ");
+            String temp = scan.nextLine();
+            if (Priority.isInteger(temp)) { priority = Integer.parseInt(temp); b = false; }
+          }
       
           // Add Node to queue.
           pq.enqueue(id, priority);
@@ -104,12 +117,21 @@ public class Priority {
         case "changeWeight":
         case "c":
           // Get element ID (position).
-          System.out.print("What is the current element ID (position)? ");
-          id = scan.nextInt();
-      
+          id = -1;
+          while (id < 0 || id > size - 1) {
+            System.out.print("What is the current element ID (position)? ");
+            String temp = scan.nextLine();
+            if (Priority.isInteger(temp)) id = Integer.parseInt(temp);
+          }
+          
           // Get element priority (value).
-          System.out.print("What is the new element priority (value)? ");
-          priority = scan.nextInt();
+          b = true;
+          priority = 0;
+          while (b) {
+            System.out.print("What is the new element priority (value)? ");
+            String temp = scan.nextLine();
+            if (Priority.isInteger(temp)) { priority = Integer.parseInt(temp); b = false; }
+          }
       
           // Add Node to queue.
           pq.changeWeight(id, priority);
