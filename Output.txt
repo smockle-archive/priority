@@ -1,0 +1,83 @@
+Clays-MacBook-Pro:priority clay$ clear && rm -f Node.class && javac -g Node.java && rm -f Priority.class && javac -g Priority.java && java Priority
+How big is the queue? Hello reader,
+How big is the queue? Invalid input doesn't break my program.
+How big is the queue? Negative numbers, zero, decimals, words, etc:
+How big is the queue? -1
+How big is the queue? 0
+How big is the queue? 1.1
+How big is the queue?  
+How big is the queue? Let's get started:
+How big is the queue? 5
+How many elements initially? 4
+What is the ID (position) of element #1? 0
+What is the priority (value) of element #1? 0
+What is the ID (position) of element #2? Two elements can't have the same id.
+What is the ID (position) of element #2? 0
+What is the ID (position) of element #2? 
+What is the ID (position) of element #2? 1
+What is the priority (value) of element #2? 10
+What is the ID (position) of element #3? 2
+What is the priority (value) of element #3? 20
+What is the ID (position) of element #4? 3
+What is the priority (value) of element #4? 30
+Please specify a command:
+"enqueue" or "e" adds a new element.
+"dequeue" or "d" removes the highest priority element.
+"changeWeight" or "c" changes the priority of an element.
+"show" or "s" displays all elements.
+"exit" or "quit" or "q" closes the program.
+> Invalid commands don't break my program.
+> Neither do empty prompts.
+> 
+> 
+> s
+[ [ id = 3, priority = 30 ], [ id = 1, priority = 10 ], [ id = 2, priority = 20 ], [ id = 0, priority = 0 ] ]
+> e
+What is the new element ID (position)? 4 
+What is the new element priority (value)? 40
+> show
+[ [ id = 4, priority = 40 ], [ id = 3, priority = 30 ], [ id = 2, priority = 20 ], [ id = 0, priority = 0 ], [ id = 1, priority = 10 ] ]
+> Enqueue is disabled when the queue is full:
+> e
+> 
+> s
+[ [ id = 4, priority = 40 ], [ id = 3, priority = 30 ], [ id = 2, priority = 20 ], [ id = 0, priority = 0 ], [ id = 1, priority = 10 ] ]
+> d
+> s
+[ [ id = 3, priority = 30 ], [ id = 1, priority = 10 ], [ id = 2, priority = 20 ], [ id = 0, priority = 0 ] ]
+> dequeue
+> s
+[ [ id = 2, priority = 20 ], [ id = 1, priority = 10 ], [ id = 0, priority = 0 ] ]
+> d
+> d
+> s
+[ [ id = 0, priority = 0 ] ]
+> d
+> s
+[  ]
+> Dequeue is disabled when the queue is empty:
+> d
+> 
+> e
+What is the new element ID (position)? 0
+What is the new element priority (value)? 0
+> e
+What is the new element ID (position)? 1
+What is the new element priority (value)? 10
+> e
+What is the new element ID (position)? 2
+What is the new element priority (value)? 10
+> 
+> Oh no! I meant to set the priority to 20!
+> 
+> c
+What is the current element ID (position)? 2
+What is the new element priority (value)? 20
+> 
+> s
+[ [ id = 1, priority = 10 ], [ id = 0, priority = 0 ], [ id = 2, priority = 20 ] ]
+> 
+> And that's it!
+> Goodbye reader.
+> q
+Clays-MacBook-Pro:priority clay$ 
