@@ -41,7 +41,7 @@ public class Priority {
     }
     
     // Make a priority queue.
-    Heap pq = new Heap(nodes, size, n);
+    Heap pq = new Heap(nodes, size, 0);
     
     // Get each initial element.
     for (int i = 0; i < n; i++) {
