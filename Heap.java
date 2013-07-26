@@ -182,5 +182,17 @@ public class Heap {
           siftdown(i);
       }
   }
+  
+  // Return contents of heap
+  public String toString() {
+    String output = "[ ";
+    
+    for (int i = 0; i < n; i++) {
+      output += "[ id = " + Heap[i].id + ", priority = " + Heap[i].priority + " ]";
+      if (i != n - 1) output += ", ";
+    }
+    
+    return output + " ]";
+  }
 }
 
