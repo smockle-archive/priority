@@ -177,7 +177,7 @@ public class Heap {
   // Heapify contents of heap
   public void buildheap()
   {
-      for(int i = 0; i < n; i++)
+      for(int i = n-1; i >= 0; i--)
       {
           siftdown(i);
       }
