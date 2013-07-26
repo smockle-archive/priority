@@ -5,6 +5,8 @@ import java.util.Scanner;
 // COMP 3270
 // 2013-07-26 Version 1.0
 
+// Requires at least Java Version 7.25
+
 // To build: rm -f Node.class && javac -g Node.java && rm -f Priority.class && javac -g Priority.java
 // To run: java Priority
 
