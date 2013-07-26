@@ -15,16 +15,53 @@ public class Heap {
 		
 		public void enqueue(int Object_ID, int priority)
 		{
-			Node n = new Node();
-			n.nodeID = Object_ID;
-			n.nodePriority = priority;
+			Node node = new Node();
+			node.nodeID = Object_ID;
+			node.nodePriority = priority;
 			
-			n.enqueueNidiot!!!!;
+			insert(node);
+			
+			buildheap();
 		}
 		
-		public int dequeue()
+		// Insert value into heap
+		public void insert(Node q)
 		{
+			Heap[n] = q;
+			n = n + 1;
+		}
+		
+		// Done
+		public int dequeue()
+		{			
+		    Node root = removemax();
+		    
+		    siftdown(0);
+		    
+		    return root.nodeID;
 			
+		}
+		
+		// Remove maximum value - Done
+		public Node removemax()
+		{
+		    Node root = Heap[0];
+		    
+			n = n - 1;
+		    Heap[0] = Heap[n];
+		    
+		    return root;
+		}
+		
+		// Remove value at specified position - Done
+		public Node remove(int x)
+		{
+		    Node root = Heap[x];
+		    
+			n = n - 1;
+		    Heap[x] = Heap[n];
+		    
+		    return root;			
 		}
 		
 		// Done
@@ -46,16 +83,45 @@ public class Heap {
 			}
 		}
 		
-		// Put an element in its correct place ~ max-heapify(int) 
+		// Put an element in its correct place ~ max-heapify(int) - Done 
 		private void siftdown(int x) 
 		{
-			
+		      int bigChild;
+		      boolean done = false;		      
+		      Node root = Heap[x]; 
+		      
+		      while((x < n/2) && !done)       
+		      {		    	  
+		          int left = 2*x+1;
+		          int right = left+1;
+		                                         
+		          if(right < n && Heap[left].nodePriority < Heap[right].nodePriority)
+		          {			        	  
+		              bigChild = right;
+		          }
+		          else
+		          {		        	 
+		              bigChild = left;
+		          }
+		                                         
+		          if(root.nodePriority >= Heap[bigChild].nodePriority)
+		          {
+			            done = true;		        	  
+		          }
+		          else
+		          {                      
+			          Heap[x] = Heap[bigChild];
+			          x = bigChild;  
+		          }         
+		      } 
+		      
+		      Heap[x] = root;           
 		}
 
 		// Return current size of the heap - Done
 		public int heapsize() 
 		{
-			return Heap.length;
+			return n;
 		}
 		
 		// TRUE if pos is a leaf position - Done
@@ -75,13 +141,11 @@ public class Heap {
 		public int leftChild(int x)
 		{
 			int retval = -1;
-			
-			try
+
+			if((2*x) > n)
 			{
-				Node left = Heap[2*x];
-				retval = 2*x;
+				retval = 2*x;				
 			}
-			finally{}
 				
 			return retval;		
 		}
@@ -91,54 +155,34 @@ public class Heap {
 		{
 			int retval = -1;
 			
-			try
+			if((2*x + 1) > n)
 			{
-				Node right = Heap[2*x + 1];
-				retval = 2*x + 1;
+				retval = 2*x + 1;				
 			}
-			finally{}
-				
+							
 			return retval;	
 		}
 		
-		// Return position for parent 
+		// Return position for parent - Done
 		public int parent(int x)
 		{
-
 			int retval = -1;
 			
-			try
+			if(x != 0)
 			{
-				Node parent = Heap[x/2];
-				retval = x/2;
+				retval = x/2;				
 			}
-			finally{}
 				
 			return retval;
-		}
-		
-		// Insert value into heap
-		public void insert(Node q)
-		{
-			
-		}
-		
-		// Remove maximum value
-		public Node removemax()
-		{
-			
-		}
-		
-		// Remove value at specified position
-		public Node remove(int x)
-		{
-			
 		}
 		
 		// Heapify contents of heap
 		public void buildheap()
 		{
-			
+			for(int i = 0; i < n; i++)
+			{
+				siftdown(i);
+			}
 		}
 		
 		// This is my special node representation class,  It's just a fancy way to represent the values
