@@ -76,6 +76,7 @@ public class Priority {
     System.out.println("\"enqueue\" or \"e\" adds a new element.");
     System.out.println("\"dequeue\" or \"d\" removes the highest priority element.");
     System.out.println("\"changeWeight\" or \"c\" changes the priority of an element.");
+    System.out.println("\"show\" or \"s\" displays all elements.");
     
     // Get user commands (enqueue, dequeue, changeweight).
     String c = "";
@@ -135,6 +136,11 @@ public class Priority {
       
           // Add Node to queue.
           pq.changeWeight(id, priority);
+          break;
+        
+        case "show":
+        case "s":
+          
           break;
         
         case "exit":
