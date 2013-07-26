@@ -98,6 +98,8 @@ public class Priority {
       switch (c) {
         case "enqueue":
         case "e":
+          if (pq.getHeap().length == pq.heapsize()) { break; }
+        
           // Get element ID (position).
           int id = -1;
           while (id < 0 || id > size - 1) {
@@ -139,11 +141,13 @@ public class Priority {
             String temp = scan.nextLine();
             if (Priority.isInteger(temp)) id = Integer.parseInt(temp);
             
-            // Check existing ids. Ensure uniqueness.
+            // Check existing ids. Ensure element exists.
             Node[] ns = pq.getHeap();
+            b = true;
             for (int j = 0; j < pq.heapsize(); j++) {
-              if (ns[j].id == id) id = -1;
+              if (ns[j].id == id) b = false;
             }
+            if (b) id = -1;
           }
           
           // Get element priority (value).
