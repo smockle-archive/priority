@@ -59,7 +59,7 @@ public class Priority {
         
         // Check existing ids. Ensure uniqueness.
         Node[] ns = pq.getHeap();
-        for (int j = 0; j < ns.length; j++) {
+        for (int j = 0; j < pq.heapsize(); j++) {
           if (ns[j].id == node.id) node.id = -1;
         }
       }
@@ -106,8 +106,8 @@ public class Priority {
             
             // Check existing ids. Ensure uniqueness.
             Node[] ns = pq.getHeap();
-            for (int j = 0; j < ns.length; j++) {
-              if (ns[j].id == node.id) node.id = -1;
+            for (int j = 0; j < pq.heapsize(); j++) {
+              if (ns[j].id == id) id = -1;
             }
           }
           
@@ -140,8 +140,8 @@ public class Priority {
             
             // Check existing ids. Ensure uniqueness.
             Node[] ns = pq.getHeap();
-            for (int j = 0; j < ns.length; j++) {
-              if (ns[j].id == node.id) node.id = -1;
+            for (int j = 0; j < pq.heapsize(); j++) {
+              if (ns[j].id == id) id = -1;
             }
           }
           
